@@ -1,0 +1,44 @@
+#Generated at 2011-05-11 11:56:08 -0600
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__)))
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "lib"))
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "lib/sites"))
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "config"))
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "db"))
+$LOAD_PATH.unshift File.expand_path(File.join(File.dirname(__FILE__), "db/schemas"))
+require "rubygems"
+require "bundler/setup"
+require 'taza/tasks'
+require 'taza'
+
+require 'rspec/core/rake_task'
+require 'ci/reporter/rake/rspec'
+
+
+include Rake::DSL
+artifact_dir = "./artifacts/test_results/#{Time.now.strftime("%Y%m%d%H%M%S")}"
+FileUtils.mkdir_p(artifact_dir)
+file = "#{artifact_dir}/index.html"
+
+#outFile = File.new("#{artifact_dir}/index.html", "w")
+
+
+Taza::Rake::Tasks.new do |t|
+  t.spec_opts = ["--format html --out #{file} --format progress"]
+end
+
+
+RSpec::Core::RakeTask.new(:all_mediascape => ["ci:setup:rspec"]) do |t|
+  t.pattern = 'spec/integration/mediascape/**/*_spec.rb'
+end
+
+
+
+
+#tests = []
+##tests <<  'spec/integration/mediascape/account_flags_spec.rb'
+##tests <<  'spec/integration/mediascape/advertiser_rolodex_spec.rb'
+#tests <<  './spec/integration/mediascape/advertiser_spec.rb'
+#RSpec::Core::RakeTask.new(:test_mediascape => ["ci:setup:rspec"]) do |t|
+#  t.rspec_opts = "--format html --out #{file} --format progress"
+#  t.pattern = tests
+#end

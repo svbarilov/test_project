@@ -1,0 +1,5 @@
+1. open terminal
+2. cd to the root folder of the framework
+3. run "bundle install"
+4. run "bundle exec rake -T", this will show all available specs.
+5. to execute all test suites for mediascape run: "bundle exec rake spec:integration:mediascape"

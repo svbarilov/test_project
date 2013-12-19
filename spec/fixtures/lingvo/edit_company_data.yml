@@ -1,0 +1,22 @@
+# here we can store data here, we can initialize hashes that take data from these files
+
+
+agency:
+  name:           EDIT_Robot Tester Agency
+  address:        1608 West Campbell Ave
+  city:           Campbell
+  state:          CA
+  zip:            95008
+  country:        United States
+  owner:          Russ Girdler
+
+
+
+advertiser:
+  name:           EDIT_Robot Tester Advertiser
+  address:        1608 West Campbell Ave
+  city:           Campbell
+  state:          CA
+  zip:            95008
+  country:        United States
+  owner:          Russ Girdler

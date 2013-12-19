@@ -1,0 +1,9 @@
+spec/reports/
+screenshot*
+.idea/
+.bundle
+output.txt
+.DS_Store
+/artifacts
+*.png
+result.html

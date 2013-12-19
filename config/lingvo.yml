@@ -1,0 +1,7 @@
+---
+dev:
+  :url: # dev environment link goes here
+  :sign_in_url: # sign in url goes here
+qa:
+  :url: http://www.lingvo.ru  # qa environment link
+  :sign_in_url: # sign in url goes here
